@@ -11,6 +11,10 @@ app.get('/route', (req, res) => {
     res.send('Hello to the second route');
 })
 
+app.get('/route1', (req, res) => {
+    res.send('Hello to the third route');
+})
+
 app.listen(port, () => {
     console.log(`App running on http://localhost:${port}`);
 });
