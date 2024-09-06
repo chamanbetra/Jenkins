@@ -1,0 +1,40 @@
+pipeline
+{
+    agent any 
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone the GitHub repository
+                git 'https://github.com/chamanbetra/Jenkins'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Install the npm dependencies
+                sh 'npm install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Run the tests defined in the test.js file
+                sh 'npm test'
+            }
+        }
+
+
+    }
+    post {
+        always {
+            echo 'Cleaning up...'
+        }
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
