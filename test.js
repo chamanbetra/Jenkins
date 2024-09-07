@@ -13,4 +13,8 @@ describe('Dummy Test Suite', () => {
         const dummyFunction = () => 'Hello, World!';
         assert.strictEqual(dummyFunction(), 'Hello, World!');  // Always returns the correct value
     });
+
+    it('should always fail - test 1', () => {
+        assert.strictEqual(1 + 1, 3);
+    })
 });
